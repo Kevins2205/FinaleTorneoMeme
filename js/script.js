@@ -176,24 +176,3 @@ if (btnVota && message) {
     }
   });
 }
-
-
-const btnInizia = document.getElementById('btn-inizia'); // Assicurati che l'ID sia corretto
-const video = document.getElementById('introVideo');
-
-btnInizia.addEventListener('click', () => {
-    document.getElementById('overlay').style.display = 'none';
-    
-    // Forza il video
-    video.muted = false; // Togliamo il muto
-    video.load();        // Ricarichiamo il video per sicurezza
-    
-    // Play con gestione errore
-    video.play().then(() => {
-        console.log("Play avviato");
-    }).catch(error => {
-        console.log("Play fallito, provo col muto:", error);
-        video.muted = true; // Se fallisce, riprova col muto
-        video.play();
-    });
-});
