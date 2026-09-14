@@ -71,6 +71,9 @@ document.addEventListener("DOMContentLoaded", () => {
     esperienzaAvviata = true;
     startOverlay.classList.add("hidden");
     introVideo.classList.remove("hidden");
+    introVideo.muted = false;
+    introVideo.volume = 1;
+    introVideo.load();
 
     try {
       await introVideo.play();
@@ -127,6 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (video.paused) {
         video.muted = false;
+        video.volume = 1;
         video.play().catch((error) => {
           console.error("Impossibile avviare il video:", error);
         });
