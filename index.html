@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finale Torneo Meme</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/script.js"></script>
+</head>
+<body>
+  <div id="start-overlay" class="overlay">
+    <button id="start-button" class="primary-button" type="button">
+      INIZIA ESPERIENZA 
+      (Gira il telefono)
+    </button>
+  </div>
+
+  <video id="intro-video" class="intro-video hidden" preload="auto" playsinline>
+    <source src="videos/intro.mp4" type="video/mp4">
+    Il browser non supporta la riproduzione video.
+  </video>
+
+  <main>
+    <section id="access-section" class="access-section hidden" aria-labelledby="access-title">
+      <form id="access-form" class="access-form">
+        <h1 id="access-title">La Finale è per pochi</h1>
+
+        <label for="matricola">Matricola</label>
+        <input
+          id="matricola"
+          name="matricola"
+          type="text"
+          placeholder="Inserisci la tua matricola"
+          autocomplete="off"
+          required
+        >
+
+        <p id="error-message" class="error-message" role="alert"></p>
+
+        <button type="submit" class="primary-button">Scegli il tuo finalista</button>
+      </form>
+    </section>
+
+    <section id="main-content" class="main-content hidden" aria-labelledby="main-title">
+      <div class="content-header"> 
+        <h1 id="main-title">Final Match</h1>
+        <p class="eyebrow">Ecco i due finalisti (gira il telefono in verticale)</p>
+      </div>
+
+      <div class="tv-grid">
+        <article class="tv-container">
+          <h2>Primo Finalista</h2>
+          <div class="tv-screen">
+            <video id="tv-video-1" preload="metadata" loop playsinline>
+              <source src="videos/tv-video-1.mp4" type="video/mp4">
+              Il browser non supporta la riproduzione video.
+            </video>
+          </div>
+          <button class="tv-button" data-video="tv-video-1" type="button">
+            PLAY / PAUSA
+          </button>
+        </article>
+
+        <article class="tv-container">
+          <h2>Secondo Finalista</h2>
+          <div class="tv-screen">
+            <video id="tv-video-2" preload="metadata" loop playsinline>
+              <source src="videos/tv-video-2.mp4" type="video/mp4">
+              Il browser non supporta la riproduzione video.
+            </video>
+          </div>
+          <button class="tv-button" data-video="tv-video-2" type="button">
+            PLAY / PAUSA
+          </button>
+        </article>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <section id="voting-section" aria-labelledby="voting-title">
+        <h2 id="voting-title">Esprimi la tua preferenza</h2>
+
+        <div class="vote-options">
+          <label>
+            <input type="radio" name="vote" value="Roman Giangi Ars Maxima">
+            <span>Roman Giangi Ars Maxima</span>
+          </label>
+          <label>
+            <input type="radio" name="vote" value="Partitina a Pallavolo">
+            <span>Partitina a Pallavolo</span>
+          </label>
+        </div>
+
+        <button id="submit-vote" class="vote-button" type="button">Invia voto</button>
+
+        <div id="results" class="vote-results" aria-live="polite">
+          <p>Voti per Roman Giangi Ars Maxima: <span id="voti-1">0</span>/9</p>
+          <p>Voti per Partitina a Pallavolo: <span id="voti-2">0</span>/9</p>
+        </div>
+        <p id="message" class="vote-message" role="status"></p>
+      </section>
+    </section>
+  </main>
+</body>
+</html>

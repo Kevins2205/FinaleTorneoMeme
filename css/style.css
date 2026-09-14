@@ -1,0 +1,343 @@
+:root {
+  color-scheme: dark;
+  --background: #09090b;
+  --surface: #141416;
+  --surface-light: #202024;
+  --text: #f5f5f5;
+  --muted: #a1a1aa;
+  --accent: #d6ff3f;
+  --error: #ff5c69;
+  --metal-dark: #414149;
+  --metal-light: #9a9aa3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow-x: hidden;
+  background: var(--background);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.overlay {
+  position: fixed;
+  z-index: 10;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  background: #000;
+}
+
+.intro-video {
+  position: fixed;
+  z-index: 5;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  background: #000;
+}
+
+.primary-button {
+  border: 0;
+  border-radius: 999px;
+  padding: 1rem 1.5rem;
+  background: var(--accent);
+  color: #101010;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+.primary-button:hover,
+.primary-button:focus-visible {
+  filter: brightness(1.12);
+  transform: translateY(-2px);
+}
+
+.access-section {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+}
+
+.access-form {
+  width: min(100%, 24rem);
+  padding: 2rem;
+  border: 1px solid #29292e;
+  border-radius: 1.25rem;
+  background: var(--surface);
+  box-shadow: 0 1.5rem 4rem #0008;
+  animation: fade-in 700ms ease both;
+}
+
+.access-form h1 {
+  margin: 0 0 1.75rem;
+  font-size: 2rem;
+}
+
+.access-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.access-form input {
+  width: 100%;
+  border: 1px solid #3a3a40;
+  border-radius: 0.65rem;
+  padding: 0.9rem 1rem;
+  outline: none;
+  background: #0e0e10;
+  color: var(--text);
+}
+
+.access-form input:focus {
+  border-color: var(--accent);
+}
+
+.access-form .primary-button {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.error-message {
+  min-height: 1.25rem;
+  margin: 0.5rem 0 0;
+  color: var(--error);
+  font-size: 0.85rem;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(100%, 1100px);
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+.content-header {
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.5rem;
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.content-header h1 {
+  margin: 0;
+  font-size: clamp(2rem, 8vw, 4rem);
+}
+
+.tv-grid {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tv-container {
+  width: min(90vw, 600px);
+  margin-bottom: 60px;
+  padding: 0.8rem;
+  border: 0.45rem solid var(--metal-dark);
+  border-top-color: var(--metal-light);
+  border-left-color: var(--metal-light);
+  border-radius: 1rem;
+  background: linear-gradient(145deg, #777780, #27272d);
+  box-shadow:
+    inset 0 0 0 0.2rem #161619,
+    0 1.5rem 3rem #0009;
+}
+
+.tv-container:last-child {
+  margin-bottom: 0;
+}
+
+.tv-container h2 {
+  margin: 0.5rem 0 1rem;
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(1.25rem, 4vw, 1.75rem);
+  font-weight: 700;
+  text-align: center;
+}
+
+.tv-screen {
+  display: grid;
+  min-height: 16rem;
+  border: 0.65rem solid #111114;
+  border-radius: 0.55rem;
+  background: #000;
+  box-shadow:
+    inset 0 0 1.5rem #000,
+    0 0 1rem #000;
+}
+
+.tv-screen video {
+    width: 100%;          /* Forza la larghezza a coprire tutto il contenitore */
+    height: 100%;        /* Forza l'altezza della cornice */
+    object-fit: contain;    /* <-- QUESTA È LA MODIFICA: riempie tutto lo spazio disponibile */
+    display: block;
+    background-color: #000; 
+}
+
+.tv-button {
+  width: 100%;
+  margin-top: 0.8rem;
+  border: 1px solid #b5b5bd;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  background: #25252b;
+  color: var(--text);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.tv-button:hover,
+.tv-button:focus-visible {
+  background: #36363e;
+}
+
+#voting-section {
+  width: min(90vw, 600px);
+  margin-top: 0;
+  padding: 1.5rem;
+  border: 1px solid #303036;
+  border-radius: 1rem;
+  background: var(--surface);
+  box-shadow: 0 1rem 2.5rem #0008;
+}
+
+#voting-section h2 {
+  margin: 0 0 1.25rem;
+  color: var(--text);
+  font-size: clamp(1.35rem, 5vw, 1.8rem);
+  text-align: center;
+}
+
+.vote-options {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.vote-options label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border: 1px solid #3a3a40;
+  border-radius: 0.65rem;
+  padding: 0.9rem 1rem;
+  background: #0e0e10;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.vote-options label:has(input:checked) {
+  border-color: var(--accent);
+  background: #1c2110;
+}
+
+.vote-options input {
+  accent-color: var(--accent);
+  flex: 0 0 auto;
+}
+
+.vote-button {
+  width: 100%;
+  margin-top: 1.25rem;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.9rem 1.25rem;
+  background: var(--accent);
+  color: #101010;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.vote-button:hover,
+.vote-button:focus-visible {
+  filter: brightness(1.12);
+}
+
+.vote-button:disabled {
+  cursor: not-allowed;
+  filter: grayscale(1);
+  opacity: 0.55;
+}
+
+.vote-results {
+  display: grid;
+  gap: 0.35rem;
+  margin-top: 1.5rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.vote-results p {
+  margin: 0;
+}
+
+.vote-results span {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.vote-message {
+  min-height: 1.25rem;
+  margin: 1rem 0 0;
+  color: var(--accent);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 700px) {
+  .main-content {
+    padding: 5rem 2rem;
+  }
+}
